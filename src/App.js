@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import Offers from './components/Offers.jsx';
 import Plan from './components/Plan.jsx';
 import About from './components/About.jsx';
+import ImageSlider from './components/ImageSlider.jsx';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Offers />
       <Plan />
       <About />
+      <ImageSlider />
     </div>
   );
 }

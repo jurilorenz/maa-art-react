@@ -3,7 +3,7 @@ import painting1 from '../assets/images/painting/painting1.jpg';
 import painting2 from '../assets/images/painting/painting2.jpg';
 import painting3 from '../assets/images/painting/painting3.jpg';
 import painting4 from '../assets/images/painting/painting4.jpg';
-import painting5 from '../assets/images/painting/painting5.jpg';
+import painting5 from '../assets/images/painting/painting6.jpg';
 
 const Plan = () => {
   return (
