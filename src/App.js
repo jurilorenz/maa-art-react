@@ -4,6 +4,7 @@ import Offers from './components/Offers.jsx';
 import Plan from './components/Plan.jsx';
 import About from './components/About.jsx';
 import ImageSlider from './components/ImageSlider.jsx';
+import Footer from './components/Footer.jsx';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Plan />
       <About />
       <ImageSlider />
+      <Footer />
     </div>
   );
 }
