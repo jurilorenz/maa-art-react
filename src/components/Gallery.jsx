@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FiZoomIn } from 'react-icons/fi'; // Importing an icon for zoom/fullscreen
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { VscChromeClose } from "react-icons/vsc";
 
 // Dynamically load all images from the thumbnails directory
 const importAll = (r) => {
@@ -34,31 +35,52 @@ const allImages = [
 
 const Gallery = () => {
   const [filter, setFilter] = useState('all');
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
+
+  const openModal = (index) => {
+    setSelectedIndex(index);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+
+  const closeModal = () => {
+    setSelectedIndex(null);
+    document.body.style.overflow = 'scroll'; // Allow scrolling again when modal is closed
+  };
+
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((selectedIndex - 1 + filteredImages.length) % filteredImages.length);
+  };
+
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((selectedIndex + 1) % filteredImages.length);
+  };
 
   return (
     <div className='max-w-[1400px] m-auto py-2 px-4'>
       {/* Gallery Title and Options */}
       <div className='max-w-[900px] m-auto px-4 py-4'>
-      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
-  DRAWINGS
-</h3>
+        <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
+          DRAWINGS
+        </h3>
         <div className='flex flex-col lg:flex-row justify-end items-end lg:items-center -mt-6'>
           <p 
-            className={`text-sm font-bold text-gray-700 lg:mr-4 mb-2 lg:mb-0 cursor-pointer ${filter === 'all' && 'underline'}`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'all' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => setFilter('all')}
           >
             ALL
           </p>
           <p 
-            className={`text-sm font-bold text-gray-700 lg:mr-4 mb-2 lg:mb-0 cursor-pointer ${filter === 'painting' && 'underline'}`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'painting' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => setFilter('painting')}
           >
             PAINTING
           </p>
           <p 
-            className={`text-sm font-bold text-gray-700 lg:mr-4 cursor-pointer ${filter === 'graphic' && 'underline'}`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'graphic' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4`}
             onClick={() => setFilter('graphic')}
           >
             GRAPHIC
@@ -68,30 +90,79 @@ const Gallery = () => {
       
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>        
         {filteredImages.map((image, index) => (
-          <div key={index} className='relative w-full h-0 pb-[75%] group'>
+          <div 
+            key={index} 
+            className='relative w-full h-0 pb-[75%] group'
+            onClick={() => openModal(index)} // Open the modal on image click
+          >
             <img 
-              className='absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70' 
+              className='absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70 cursor-pointer' 
               src={image.src} 
               alt={`Artwork ${index + 1}`} 
             />
             {/* Overlay that appears on hover */}
-            <div className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
-  <p className='text-xs md:text-sm lg:text-base font-bold text-center mb-2 group-hover:text-sm lg:group-hover:text-lg transition-all duration-300'>
-    {image.title}
-  </p>
-  <p className='text-[10px] md:text-xs lg:text-sm text-center mt-2 group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
-    {image.year}, {image.medium}
-  </p>
-  <p className='text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
-    {image.size}
-  </p>
-  <p className='text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
-    {image.price}
-  </p>
-</div>
+            <div className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
+              <p className='text-xs md:text-sm lg:text-base font-bold text-center mb-2 group-hover:text-sm lg:group-hover:text-lg transition-all duration-300'>
+                {image.title}
+              </p>
+              <p className='text-[10px] md:text-xs lg:text-sm text-center mt-2 group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
+                {image.year}, {image.medium}
+              </p>
+              <p className='text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
+                {image.size}
+              </p>
+              <p className='text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300'>
+                {image.price}
+              </p>
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {selectedIndex !== null && (
+        <div 
+          className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center'
+          onClick={closeModal} // Close the modal when clicking on the background
+        >
+                    <button 
+  onClick={closeModal} 
+  className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+>
+  <VscChromeClose />
+</button>
+
+<button 
+  onClick={showPrevImage} 
+  className='absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+>
+  <BsChevronLeft />
+</button>
+
+<button 
+  onClick={showNextImage} 
+  className='absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+>
+  <BsChevronRight />
+</button>
+
+          <div className='relative max-w-[90%] max-h-[80%]'>
+
+
+            <img 
+              src={filteredImages[selectedIndex].src} 
+              alt={filteredImages[selectedIndex].title} 
+              className='object-contain w-full h-auto' 
+            />
+
+            <div className='mt-4 text-white text-center'>
+              <p className='text-lg font-bold'>{filteredImages[selectedIndex].title}</p>
+              <p className='text-sm'>{filteredImages[selectedIndex].size}, {filteredImages[selectedIndex].medium}, {filteredImages[selectedIndex].year}</p>
+              <p className='text-sm'>{filteredImages[selectedIndex].price}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
