@@ -127,7 +127,7 @@ const Gallery = () => {
       </div>
 
       {/* Modal */}
-      {selectedIndex !== null && (
+{selectedIndex !== null && (
   <div 
     className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center'
     onClick={closeModal} // Close the modal when clicking on the background
@@ -139,20 +139,6 @@ const Gallery = () => {
       <VscChromeClose />
     </button>
 
-    <button 
-      onClick={showPrevImage} 
-      className='absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
-    >
-      <BsChevronLeft />
-    </button>
-
-    <button 
-      onClick={showNextImage} 
-      className='absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
-    >
-      <BsChevronRight />
-    </button>
-
     <div className='relative max-w-[80%] max-h-[80%] flex flex-col justify-center items-center'>
       <img 
         src={filteredImages[selectedIndex].fullSrc} 
@@ -160,10 +146,29 @@ const Gallery = () => {
         className='object-contain max-w-full max-h-[80vh]' 
       />
 
-      <div className='mt-4 text-white text-center'>
-        <p className='text-lg font-bold'>{filteredImages[selectedIndex].title}</p>
-        <p className='text-sm'>{filteredImages[selectedIndex].size}, {filteredImages[selectedIndex].medium}, {filteredImages[selectedIndex].year}</p>
-        <p className='text-sm'>{filteredImages[selectedIndex].price}</p>
+      <div className='mt-4 text-white text-center flex items-center justify-center lg:justify-between w-full px-4'>
+        {/* Left Arrow (mobile version next to text, large screen on sides) */}
+        <button 
+          onClick={showPrevImage} 
+          className='text-white text-3xl hover:text-gray-300 bg-transparent border-none mr-4 lg:mr-0 lg:absolute lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-[calc(100%+1rem)]' // Stick to the left border
+        >
+          <BsChevronLeft />
+        </button>
+
+        {/* Title and Info */}
+        <div className='flex flex-col items-center lg:flex-grow'>
+          <p className='text-lg font-bold'>{filteredImages[selectedIndex].title}</p>
+          <p className='text-sm'>{filteredImages[selectedIndex].size}, {filteredImages[selectedIndex].medium}, {filteredImages[selectedIndex].year}</p>
+          <p className='text-sm'>{filteredImages[selectedIndex].price}</p>
+        </div>
+
+        {/* Right Arrow (mobile version next to text, large screen on sides) */}
+        <button 
+          onClick={showNextImage} 
+          className='text-white text-3xl hover:text-gray-300 bg-transparent border-none ml-4 lg:ml-0 lg:absolute lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:translate-x-[calc(100%+1rem)]' // Stick to the right border
+        >
+          <BsChevronRight />
+        </button>
       </div>
     </div>
   </div>
