@@ -9,12 +9,18 @@ const importAll = (r) => {
   return images;
 }
 
-const paintingImages = importAll(require.context('../assets/images/thumbnails/painting', false, /\.(png|jpe?g|svg)$/));
-const graphicImages = importAll(require.context('../assets/images/thumbnails/graphic', false, /\.(png|jpe?g|svg)$/));
+// Importing thumbnails
+const paintingThumbnails = importAll(require.context('../assets/images/thumbnails/painting', false, /\.(png|jpe?g|svg)$/));
+const graphicThumbnails = importAll(require.context('../assets/images/thumbnails/graphic', false, /\.(png|jpe?g|svg)$/));
+
+// Importing full-size images
+const paintingFullImages = importAll(require.context('../assets/images/painting', false, /\.(png|jpe?g|svg)$/));
+const graphicFullImages = importAll(require.context('../assets/images/graphic', false, /\.(png|jpe?g|svg)$/));
 
 const allImages = [
-  ...Object.keys(paintingImages).map(key => ({
-    src: paintingImages[key],
+  ...Object.keys(paintingThumbnails).map(key => ({
+    src: paintingThumbnails[key],  // Thumbnail image
+    fullSrc: paintingFullImages[key],  // Full-size image
     category: 'painting',
     title: 'Painting Title',
     year: '2022',
@@ -22,8 +28,9 @@ const allImages = [
     size: '60x90 cm',
     price: '90000 р.',
   })),
-  ...Object.keys(graphicImages).map(key => ({
-    src: graphicImages[key],
+  ...Object.keys(graphicThumbnails).map(key => ({
+    src: graphicThumbnails[key],  // Thumbnail image
+    fullSrc: graphicFullImages[key],  // Full-size image
     category: 'graphic',
     title: 'Graphic Title',
     year: '2021',
@@ -150,7 +157,7 @@ const Gallery = () => {
 
 
             <img 
-              src={filteredImages[selectedIndex].src} 
+              src={filteredImages[selectedIndex].fullSrc} 
               alt={filteredImages[selectedIndex].title} 
               className='object-contain w-full h-auto' 
             />
