@@ -128,48 +128,46 @@ const Gallery = () => {
 
       {/* Modal */}
       {selectedIndex !== null && (
-        <div 
-          className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center'
-          onClick={closeModal} // Close the modal when clicking on the background
-        >
-                    <button 
-  onClick={closeModal} 
-  className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
->
-  <VscChromeClose />
-</button>
+  <div 
+    className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center'
+    onClick={closeModal} // Close the modal when clicking on the background
+  >
+    <button 
+      onClick={closeModal} 
+      className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+    >
+      <VscChromeClose />
+    </button>
 
-<button 
-  onClick={showPrevImage} 
-  className='absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
->
-  <BsChevronLeft />
-</button>
+    <button 
+      onClick={showPrevImage} 
+      className='absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+    >
+      <BsChevronLeft />
+    </button>
 
-<button 
-  onClick={showNextImage} 
-  className='absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
->
-  <BsChevronRight />
-</button>
+    <button 
+      onClick={showNextImage} 
+      className='absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'
+    >
+      <BsChevronRight />
+    </button>
 
-          <div className='relative max-w-[90%] max-h-[80%]'>
+    <div className='relative max-w-[80%] max-h-[80%] flex flex-col justify-center items-center'>
+      <img 
+        src={filteredImages[selectedIndex].fullSrc} 
+        alt={filteredImages[selectedIndex].title} 
+        className='object-contain max-w-full max-h-[80vh]' 
+      />
 
-
-            <img 
-              src={filteredImages[selectedIndex].fullSrc} 
-              alt={filteredImages[selectedIndex].title} 
-              className='object-contain w-full h-auto' 
-            />
-
-            <div className='mt-4 text-white text-center'>
-              <p className='text-lg font-bold'>{filteredImages[selectedIndex].title}</p>
-              <p className='text-sm'>{filteredImages[selectedIndex].size}, {filteredImages[selectedIndex].medium}, {filteredImages[selectedIndex].year}</p>
-              <p className='text-sm'>{filteredImages[selectedIndex].price}</p>
-            </div>
-          </div>
-        </div>
-      )}
+      <div className='mt-4 text-white text-center'>
+        <p className='text-lg font-bold'>{filteredImages[selectedIndex].title}</p>
+        <p className='text-sm'>{filteredImages[selectedIndex].size}, {filteredImages[selectedIndex].medium}, {filteredImages[selectedIndex].year}</p>
+        <p className='text-sm'>{filteredImages[selectedIndex].price}</p>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };
