@@ -56,12 +56,12 @@ const Gallery = () => {
   };
 
   const showPrevImage = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     setSelectedIndex((selectedIndex - 1 + filteredImages.length) % filteredImages.length);
   };
-
+  
   const showNextImage = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     setSelectedIndex((selectedIndex + 1) % filteredImages.length);
   };
 
