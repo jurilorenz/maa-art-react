@@ -38,7 +38,7 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
       <button 
         onClick={onPrev} 
         className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
-        absolute bottom-4 left-4 lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-0' 
+        absolute bottom-8 left-8 lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-0' 
       >
         <BsChevronLeft />
       </button>
@@ -47,7 +47,7 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
       <button 
         onClick={onNext} 
         className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
-        absolute bottom-4 right-4 lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:translate-x-0' 
+        absolute bottom-8 right-8 lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:translate-x-0' 
       >
         <BsChevronRight />
       </button>
