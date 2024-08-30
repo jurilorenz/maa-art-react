@@ -1,34 +1,6 @@
 import React, { useState } from 'react';
-import painting1 from '../assets/images/painting/painting1.jpg';
-import painting2 from '../assets/images/painting/painting2.jpg';
-import painting3 from '../assets/images/painting/painting3.jpg';
-import painting4 from '../assets/images/painting/painting4.jpg';
-import painting5 from '../assets/images/painting/painting5.jpg';
 
-const ImageSlider = () => {
-  const slides = [
-    {
-      url: painting1,
-      title: 'Painting 1',
-    },
-    {
-      url: painting2,
-      title: 'Painting 2',
-    },
-    {
-      url: painting3,
-      title: 'Painting 3',
-    },
-    {
-      url: painting4,
-      title: 'Painting 4',
-    },
-    {
-      url: painting5,
-      title: 'Painting 5',
-    },
-  ];
-
+const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToNextSlide = () => {

@@ -3,7 +3,7 @@ import Hero from './components/Hero.jsx';
 import Offers from './components/Offers.jsx';
 import Gallery from './components/Gallery.jsx';
 import About from './components/About.jsx';
-import ImageSlider from './components/ImageSlider.jsx';
+import Exhibitions from './components/Exhibitions.jsx';
 import Footer from './components/Footer.jsx';
 
 
@@ -13,9 +13,9 @@ function App() {
       <Navbar />
       <Hero />
       <Gallery />
-      <Offers />
       <About />
-      <ImageSlider />
+      <Offers />
+      <Exhibitions />
       <Footer />
     </div>
   );
