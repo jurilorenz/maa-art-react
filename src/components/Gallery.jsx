@@ -42,8 +42,15 @@ const allImages = [
 const Gallery = () => {
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [isFading, setIsFading] = useState(false);
 
-  const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
+  const handleFilterChange = (newFilter) => {
+    setIsFading(true);
+    setTimeout(() => {
+      setFilter(newFilter);
+      setIsFading(false);
+    }, 700); // Adjust the timing to match the transition duration
+  };
 
   const openModal = (index) => {
     setSelectedIndex(index);
@@ -65,6 +72,8 @@ const Gallery = () => {
     setSelectedIndex((selectedIndex + 1) % filteredImages.length);
   };
 
+  const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
+
   return (
     <div className='max-w-[1400px] m-auto py-2 px-4'>
       {/* Gallery Title and Options */}
@@ -75,26 +84,26 @@ const Gallery = () => {
         <div className='flex flex-col lg:flex-row justify-end items-end lg:items-center -mt-6'>
           <p 
             className={`text-sm font-bold cursor-pointer ${filter === 'all' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
-            onClick={() => setFilter('all')}
+            onClick={() => handleFilterChange('all')}
           >
             ALL
           </p>
           <p 
             className={`text-sm font-bold cursor-pointer ${filter === 'painting' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
-            onClick={() => setFilter('painting')}
+            onClick={() => handleFilterChange('painting')}
           >
             PAINTING
           </p>
           <p 
             className={`text-sm font-bold cursor-pointer ${filter === 'graphic' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4`}
-            onClick={() => setFilter('graphic')}
+            onClick={() => handleFilterChange('graphic')}
           >
             GRAPHIC
           </p>
         </div>
       </div>
       
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>        
+      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>        
         {filteredImages.map((image, index) => (
           <div 
             key={index} 
