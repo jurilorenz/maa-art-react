@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import Modal from './Modal';
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const goToNextSlide = () => {
     const isLastSlide = currentIndex === slides.length - 1;
@@ -15,30 +18,37 @@ const ImageSlider = ({ slides }) => {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <div className='max-w-[1400px] h-[580px] w-full m-auto py-16 px-4 relative group'>
       <div
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer'
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+        onClick={openModal} // Open modal on image click
       ></div>
       {/* Left Arrow */}
-      <div
-        className='absolute top-[50%] left-5 transform -translate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'
-        onClick={goToPreviousSlide}
+      <button 
+        onClick={goToPreviousSlide} 
+        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
+        absolute left-4 top-[50%] transform -translate-y-1/2'
       >
-        ❮
-      </div>
+        <BsChevronLeft />
+      </button>
       {/* Right Arrow */}
-      <div
-        className='absolute top-[50%] right-5 transform -translate-y-[50%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'
-        onClick={goToNextSlide}
+      <button 
+        onClick={goToNextSlide} 
+        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
+        absolute right-4 top-[50%] transform -translate-y-1/2'
       >
-        ❯
-      </div>
+        <BsChevronRight />
+      </button>
       {/* Dots Navigation */}
       <div className='flex justify-center py-2'>
         {slides.map((_, index) => (
@@ -47,10 +57,26 @@ const ImageSlider = ({ slides }) => {
             className={`h-3 w-3 mx-2 rounded-full cursor-pointer ${
               currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'
             }`}
-            onClick={() => goToSlide(index)}
+            onClick={() => setCurrentIndex(index)}
           ></div>
         ))}
       </div>
+
+      {/* Modal for displaying the clicked image */}
+      <Modal 
+        image={{
+          fullSrc: slides[currentIndex].fullSrc || slides[currentIndex].url, // Use fullSrc if available, otherwise fallback to url
+          title: slides[currentIndex].title,
+          size: slides[currentIndex].size || 'Unknown Size',
+          medium: slides[currentIndex].medium || 'Mixed Media',
+          year: slides[currentIndex].year || '2023',
+          //price: slides[currentIndex].price || 'Price on Request',
+        }} 
+        isOpen={isModalOpen} 
+        onClose={closeModal}
+        onNext={goToNextSlide}
+        onPrev={goToPreviousSlide}
+      />
     </div>
   );
 };

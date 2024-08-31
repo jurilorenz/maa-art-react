@@ -25,15 +25,19 @@ const Exhibition = () => {
 
       {/* Present and Upcoming Sections */}
       <div className="mt-1 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Present Section */}
+        {/* Upcoming Section */}
         <div className="flex flex-col items-center text-center md:border-r md:pr-8">
           <h3 className="text-2xl font-bold mb-4">Upcoming</h3>
           <p className="text-gray-700">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit numquam corporis doloremque omnis assumenda quisquam
+            Solo exhibition<br />
+            Art & Vision - Los Angeles<br />
+            August 20, 2024 through October 5, 2024<br />
+            Featuring a collection of new abstract works<br />
+            Opening reception: August 20, 6-9pm
           </p>
         </div>
 
-        {/* Upcoming Section */}
+        {/* Past Section */}
         <div className="flex flex-col items-center text-center md:pl-8">
           <h3 className="text-2xl font-bold mb-4">Past</h3>
           <p className="text-gray-700 mb-4">
