@@ -77,7 +77,7 @@ const Gallery = () => {
   return (
     <div className='max-w-[1400px] m-auto py-2 px-4'>
       {/* Gallery Title and Options */}
-      <div className='max-w-[900px] m-auto px-4 py-4'>
+      <div className='max-w-[900px] m-auto py-4'>
         <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
           DRAWINGS
         </h3>
