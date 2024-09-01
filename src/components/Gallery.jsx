@@ -4,7 +4,9 @@ import Modal from './Modal'; // Import the Modal component
 // Dynamically load all images from the thumbnails directory
 const importAll = (r) => {
   let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  r.keys().map((item, index) => {
+    images[item.replace('./', '')] = r(item);
+  });
   return images;
 }
 
@@ -66,7 +68,7 @@ const Gallery = () => {
     if (e) e.stopPropagation();
     setSelectedIndex((selectedIndex - 1 + filteredImages.length) % filteredImages.length);
   };
-  
+
   const showNextImage = (e) => {
     if (e) e.stopPropagation();
     setSelectedIndex((selectedIndex + 1) % filteredImages.length);
@@ -75,26 +77,26 @@ const Gallery = () => {
   const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
 
   return (
-    <div className='max-w-[1400px] m-auto py-2 px-4'>
+    <div className='max-w-[1200px] m-auto py-2 px-4 mb-12'> {/* Added margin-bottom */}
       {/* Gallery Title and Options */}
-      <div className='max-w-[900px] m-auto py-4'>
+      <div className='max-w-[1200px] m-auto py-4'>
         <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
           DRAWINGS
         </h3>
         <div className='flex flex-col lg:flex-row justify-end items-end lg:items-center -mt-6'>
-          <p 
+          <p
             className={`text-sm font-bold cursor-pointer ${filter === 'all' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => handleFilterChange('all')}
           >
             ALL
           </p>
-          <p 
+          <p
             className={`text-sm font-bold cursor-pointer ${filter === 'painting' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => handleFilterChange('painting')}
           >
             PAINTING
           </p>
-          <p 
+          <p
             className={`text-sm font-bold cursor-pointer ${filter === 'graphic' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4`}
             onClick={() => handleFilterChange('graphic')}
           >
@@ -102,18 +104,18 @@ const Gallery = () => {
           </p>
         </div>
       </div>
-      
-      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>        
+
+      <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
         {filteredImages.map((image, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className='relative w-full h-0 pb-[75%] group'
             onClick={() => openModal(index)} // Open the modal on image click
           >
-            <img 
-              className='absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70 cursor-pointer' 
-              src={image.src} 
-              alt={`Artwork ${index + 1}`} 
+            <img
+              className='absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70 cursor-pointer'
+              src={image.src}
+              alt={`Artwork ${index + 1}`}
             />
             {/* Overlay that appears on hover */}
             <div className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>

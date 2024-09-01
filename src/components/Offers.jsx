@@ -1,13 +1,34 @@
 import React from 'react';
+import bgImage from '../assets/images/bg.jpg'; // Import the background image
 
 const Offers = () => {
   return (
     <div className='max-w-[1200px] m-auto px-4 py-12'>
       {/* Hero Section */}
-      <div className='text-center py-12 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg shadow-lg'>
-        <h1 className='text-6xl font-bold mb-4'>Exclusive Art Prints</h1>
-        <p className='text-xl mb-8'>Elevate your space with our high-quality, limited-edition prints</p>
-        <button className='bg-white text-black font-bold py-2 px-6 rounded hover:bg-gray-200 transition duration-300'>Shop Now</button>
+      <div
+        className='relative text-center py-12 text-white rounded-lg shadow-lg overflow-hidden'
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        <div className='relative z-10'>
+          <h1 className='text-6xl font-bold mb-4'>Exclusive Art Prints</h1>
+          <p className='text-xl mb-8'>Elevate your space with our high-quality, limited-edition prints</p>
+          <button
+            className='text-black font-bold py-3 px-8 rounded transition duration-300 bg-white hover:bg-gray-200'
+            style={{
+              border: 'none',
+            }}
+          >
+            Shop Now
+          </button>
+        </div>
       </div>
 
       {/* Product Highlights */}
@@ -33,7 +54,18 @@ const Offers = () => {
       <div className='text-center py-12'>
         <h2 className='text-5xl font-bold mb-4'>Ready to Elevate Your Space?</h2>
         <p className='text-xl mb-8'>Contact us today to order your custom art print.</p>
-        <button className='bg-black text-white font-bold py-3 px-8 rounded hover:bg-gray-800 transition duration-300'>Get Started</button>
+        <button
+          className='text-white font-bold py-3 px-8 rounded transition duration-300 hover:brightness-125'
+          style={{
+            backgroundImage: 'linear-gradient(135deg, #1d3557, #457b9d)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            border: 'none',
+          }}
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );

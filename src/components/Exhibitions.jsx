@@ -17,8 +17,8 @@ const slides = Object.keys(exhibitionImages).map((key, index) => ({
 
 const Exhibition = () => {
   return (
-    <div className="max-w-[1400px] m-auto py-6 px-4">
-      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-0'>EXHIBITIONS</h3>
+    <div className="max-w-[1200px] m-auto py-6 px-4 lg:mb-[2%]"> {/* Further reduced margin-bottom */}
+      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>EXHIBITIONS</h3>
 
       {/* Image Slider */}
       <ImageSlider slides={slides} />
