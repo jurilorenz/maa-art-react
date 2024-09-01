@@ -41,7 +41,7 @@ const allImages = [
   })),
 ];
 
-const Gallery = () => {
+const Drawings = () => {
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isFading, setIsFading] = useState(false);
@@ -77,8 +77,8 @@ const Gallery = () => {
   const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
 
   return (
-    <div className='max-w-[1200px] m-auto py-2 px-4 mb-12'> {/* Added margin-bottom */}
-      {/* Gallery Title and Options */}
+    <div id="drawings" className='max-w-[1200px] m-auto py-2 px-4 mb-12'> {/* Added margin-bottom */}
+      {/* Drawings Title and Options */}
       <div className='max-w-[1200px] m-auto py-4'>
         <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
           DRAWINGS
@@ -150,4 +150,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Drawings;

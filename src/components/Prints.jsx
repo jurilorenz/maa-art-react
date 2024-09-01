@@ -1,9 +1,9 @@
 import React from 'react';
 import bgImage from '../assets/images/bg.jpg'; // Import the background image
 
-const Offers = () => {
+const Prints = () => {
   return (
-    <div className='max-w-[1200px] m-auto px-4 py-12'>
+    <div id="prints" className='max-w-[1200px] m-auto px-4 py-12'>
       {/* Hero Section */}
       <div
         className='relative text-center py-12 text-white rounded-lg shadow-lg overflow-hidden'
@@ -71,4 +71,4 @@ const Offers = () => {
   );
 };
 
-export default Offers;
+export default Prints;

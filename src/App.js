@@ -1,22 +1,22 @@
 import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
-import Offers from './components/Offers.jsx';
-import Gallery from './components/Gallery.jsx';
+import Home from './components/Home.jsx';
+import Prints from './components/Prints.jsx';
+import Drawings from './components/Drawings.jsx';
 import About from './components/About.jsx';
 import Exhibitions from './components/Exhibitions.jsx';
-import Footer from './components/Footer.jsx';
+import Contact from './components/Contact.jsx';
 
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <Gallery />
-      <Offers />
+      <Home />
+      <Drawings />
+      <Prints />
       <About />
       <Exhibitions />
-      <Footer />
+      <Contact />
     </div>
   );
 }

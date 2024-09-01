@@ -5,6 +5,7 @@ import bgImage from '../assets/images/bg.jpg'; // Import the background image
 const About = () => {
   return (
     <div 
+      id="about"
       className='relative max-w-[1200px] mx-auto my-2 py-8 lg:mb-[2%] md:mb-[5%] px-4 grid lg:grid-cols-3 gap-4 rounded-lg shadow-lg' // Further reduced margins
       style={{
         backgroundImage: `url(${bgImage})`,
