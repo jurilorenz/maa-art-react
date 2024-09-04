@@ -4,16 +4,16 @@ import bgImage from '../assets/images/bg.jpg'; // Import the background image
 
 const About = () => {
   return (
-    <div 
-      id="about"
-      className='relative max-w-[1200px] mx-auto my-2 py-8 lg:mb-[2%] md:mb-[5%] px-4 grid lg:grid-cols-3 gap-4 rounded-lg shadow-lg' // Further reduced margins
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+<div 
+  id="about"
+  className='relative max-w-[1150px] mx-auto my-2 py-16 lg:mb-[2%] md:mb-[5%] px-8 grid lg:grid-cols-3 gap-4 rounded-lg shadow-lg' // Reduced width, increased padding
+  style={{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>
       {/* Black Overlay */}
       <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
 
