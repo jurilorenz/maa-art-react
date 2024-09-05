@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import bgImage from '../assets/images/bg.jpg'; // Import the background image
 
 const Prints = () => {
@@ -20,14 +21,22 @@ const Prints = () => {
         <div className='relative z-10'>
           <h1 className='text-6xl font-bold mb-4'>Exclusive Art Prints</h1>
           <p className='text-xl mb-8'>Elevate your space with our high-quality, limited-edition prints</p>
-          <button
-            className='text-black font-bold py-3 px-8 rounded transition duration-300 bg-white hover:bg-gray-200'
-            style={{
-              border: 'none',
-            }}
+          
+          {/* Contact Button */}
+          <Link 
+            to="contact" 
+            smooth={true} 
+            duration={500}
           >
-            Shop Now
-          </button>
+            <button
+              className='text-black font-bold py-3 px-8 rounded transition duration-300 bg-white hover:bg-gray-200'
+              style={{
+                border: 'none',
+              }}
+            >
+              Contact Us
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -54,18 +63,26 @@ const Prints = () => {
       <div className='text-center py-12'>
         <h2 className='text-5xl font-bold mb-4'>Ready to Elevate Your Space?</h2>
         <p className='text-xl mb-8'>Contact us today to order your custom art print.</p>
-        <button
-          className='text-white font-bold py-3 px-8 rounded transition duration-300 hover:brightness-125'
-          style={{
-            backgroundImage: 'linear-gradient(135deg, #1d3557, #457b9d)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            border: 'none',
-          }}
+        
+        {/* Contact Button */}
+        <Link 
+          to="contact" 
+          smooth={true} 
+          duration={500}
         >
-          Get Started
-        </button>
+          <button
+            className='text-white font-bold py-3 px-8 rounded transition duration-300 hover:brightness-125'
+            style={{
+              backgroundImage: 'linear-gradient(135deg, #1d3557, #457b9d)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              border: 'none',
+            }}
+          >
+            Contact Us
+          </button>
+        </Link>
       </div>
     </div>
   );

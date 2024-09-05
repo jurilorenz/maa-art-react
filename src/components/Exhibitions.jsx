@@ -36,6 +36,8 @@ const Exhibition = () => {
           </p>
         </div>
 
+
+
         {/* Past Section */}
         <div className="flex flex-col items-center text-center md:pl-8">
           <h3 className="text-2xl font-bold mb-4">Past</h3>

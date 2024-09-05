@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className='fixed w-full flex justify-end p-4 items-center bg-transparent z-40'>
       {/* Toggle between Menu Icon and Close Icon */}
-      <div onClick={handleNav} className='text-white cursor-pointer z-50'>
+      <div onClick={handleNav} className={`text-white cursor-pointer z-50 p-2 rounded-full ${nav ? 'bg-black hover:bg-gray-700' : 'bg-gray-800 hover:bg-gray-600'}`}>
         {nav ? <HiMenuAlt2 size={25} /> : <HiMenuAlt3 size={25} />}
       </div>
 
