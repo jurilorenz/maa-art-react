@@ -40,6 +40,8 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
 
   if (!isOpen) return null;
 
+  const isDevImage = image.fullSrc.includes('dev2');
+
   return (
     <div className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center' onClick={onClose}>
       <button onClick={onClose} className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'>
@@ -48,7 +50,7 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
 
       <div className='relative max-w-[100%] max-h-[80%] flex flex-col justify-center items-center'
         onClick={(e) => e.stopPropagation()} // Prevent modal close on content click
->
+      >
         {isLoading && <div className="loader">Loading...</div>}
 
         {/* Wrapping the image with TransformWrapper for zoom and pan */}
@@ -65,25 +67,42 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
         </TransformWrapper>
 
         <div className={`mt-4 text-white text-center flex items-center justify-center lg:justify-between w-full px-4 transition-opacity duration-700 ease-in-out ${isFadingOut || isLoading ? 'opacity-0' : 'opacity-100'}`}>
-          <div className='flex flex-col items-center lg:flex-grow'>
-            <p className='text-lg font-bold'>{image.title}</p>
-            <p className='text-sm'>{image.size}, {image.medium}, {image.year}</p>
-            <p className='text-sm'>{image.price}</p>
-          </div>
-        </div>
-      </div>
+  <div className='flex flex-col items-center lg:flex-grow'>
+    {isDevImage ? (
+      <a href="https://jurilorenz.github.io/cv">
+      </a>
+    ) : (
+      <p className="text-lg font-bold">
+        {image.title}
+      </p>
+    )}
+    {image.size && image.medium && image.year && (
+      <p className='text-sm'>
+        {image.size && image.size + ", "} 
+        {image.medium && image.medium + ", "} 
+        {image.year}
+      </p>
+    )}
+    <p className='text-sm'>{image.price}</p>
+  </div>
+</div>
 
-      <button 
-        onClick={handlePrev} 
-        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute bottom-8 left-8 lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-0'>
-        <BsChevronLeft />
-      </button>
+      {/* Conditionally render chevrons if the image is not dev2.jpg */}
+      {!isDevImage && (
+        <>
+          <button 
+            onClick={handlePrev} 
+            className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute bottom-8 left-8 lg:left-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-0'>
+            <BsChevronLeft />
+          </button>
 
-      <button 
-        onClick={handleNext} 
-        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute bottom-8 right-8 lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:translate-x-0'>
-        <BsChevronRight />
-      </button>
+          <button 
+            onClick={handleNext} 
+            className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute bottom-8 right-8 lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:translate-x-0'>
+            <BsChevronRight />
+          </button>
+        </>
+      )}
     </div>
   );
 };
