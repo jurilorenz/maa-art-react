@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiMenuAlt2, HiMenuAlt3 } from "react-icons/hi";
 import { Link } from 'react-scroll';
 
-const Navbar = ({ content, toggleLanguage, language }) => {
+const Navbar = ({ content }) => {
   const [nav, setNav] = useState(false);
 
   const links = [

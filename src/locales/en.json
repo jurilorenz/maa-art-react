@@ -11,6 +11,22 @@
     "exhibitions": "Exhibitions",
     "contact": "Contact"
   },
+  "drawings": {
+  "title": "DRAWINGS",
+  "all": "ALL",
+  "painting": "PAINTING",
+  "graphic": "GRAPHIC",
+  "paintingTitle": "Painting Title",
+  "paintingYear": "2022",
+  "paintingMedium": "Oil on canvas",
+  "paintingSize": "60x90 cm",
+  "paintingPrice": "90000 р.",
+  "graphicTitle": "Graphic Title",
+  "graphicYear": "2021",
+  "graphicMedium": "Ink on paper",
+  "graphicSize": "30x40 cm",
+  "graphicPrice": "30000 р."
+},
   "about": {
     "title": "ABOUT",
     "content1": "As a freelance artist, I find joy in working with oils, watercolors, tempera, and pastels, with a special focus on graphic arts. Nature deeply inspires me — from the quiet of a snow-covered forest to the vibrant greens of summer. Each piece is a heartfelt attempt to capture the beauty of our world, infusing it with a part of my soul.",
@@ -29,6 +45,13 @@
   "description": "Elevate your space with our high-quality prints.",
   "callToAction": "Ready to Elevate Your Space?",
   "callToAction2": "Contact us today to order your custom art print"
+},
+"exhibitions": {
+  "title": "EXHIBITIONS",
+  "upcomingTitle": "Upcoming",
+  "upcomingDescription": "Solo exhibition<br />Art & Vision - Los Angeles<br />August 20, 2024 through October 5, 2024<br />Featuring a collection of new abstract works<br />Opening reception: August 20, 6-9pm",
+  "pastTitle": "Past",
+  "pastDescription": "Group exhibition<br />Global Art - New York<br />March 10, 2024 through May 7, 2024"
 },
   "contact": {
     "title": "Contact Us",

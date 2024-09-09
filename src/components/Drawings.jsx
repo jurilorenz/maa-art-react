@@ -18,33 +18,33 @@ const graphicThumbnails = importAll(require.context('../assets/images/thumbnails
 const paintingFullImages = importAll(require.context('../assets/images/painting', false, /\.(png|jpe?g|svg)$/));
 const graphicFullImages = importAll(require.context('../assets/images/graphic', false, /\.(png|jpe?g|svg)$/));
 
-const allImages = [
-  ...Object.keys(paintingThumbnails).map(key => ({
-    src: paintingThumbnails[key],  // Thumbnail image
-    fullSrc: paintingFullImages[key],  // Full-size image
-    category: 'painting',
-    title: 'Painting Title',
-    year: '2022',
-    medium: 'Oil on canvas',
-    size: '60x90 cm',
-    price: '90000 р.',
-  })),
-  ...Object.keys(graphicThumbnails).map(key => ({
-    src: graphicThumbnails[key],  // Thumbnail image
-    fullSrc: graphicFullImages[key],  // Full-size image
-    category: 'graphic',
-    title: 'Graphic Title',
-    year: '2021',
-    medium: 'Ink on paper',
-    size: '30x40 cm',
-    price: '30000 р.',
-  })),
-];
-
-const Drawings = () => {
+const Drawings = ({ content }) => { // Accept content as prop for language switching
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isFading, setIsFading] = useState(false);
+
+  const allImages = [
+    ...Object.keys(paintingThumbnails).map(key => ({
+      src: paintingThumbnails[key],
+      fullSrc: paintingFullImages[key],
+      category: 'painting',
+      title: content.paintingTitle, 
+      year: content.paintingYear,
+      medium: content.paintingMedium,
+      size: content.paintingSize,
+      price: content.paintingPrice
+    })),
+    ...Object.keys(graphicThumbnails).map(key => ({
+      src: graphicThumbnails[key],
+      fullSrc: graphicFullImages[key],
+      category: 'graphic',
+      title: content.graphicTitle,
+      year: content.graphicYear,
+      medium: content.graphicMedium,
+      size: content.graphicSize,
+      price: content.graphicPrice
+    }))
+  ];
 
   const handleFilterChange = (newFilter) => {
     setIsFading(true);
@@ -77,30 +77,29 @@ const Drawings = () => {
   const filteredImages = filter === 'all' ? allImages : allImages.filter(image => image.category === filter);
 
   return (
-    <div id="drawings" className='max-w-[1200px] m-auto py-2 px-4 mb-12'> {/* Added margin-bottom */}
-      {/* Drawings Title and Options */}
+    <div id="drawings" className='max-w-[1200px] m-auto py-2 px-4 mb-12'>
       <div className='max-w-[1200px] m-auto py-4'>
         <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-4'>
-          DRAWINGS
+          {content.title} {/* Drawings title based on language */}
         </h3>
         <div className='flex flex-col lg:flex-row justify-end items-end lg:items-center -mt-6'>
           <p
-            className={`text-sm font-bold cursor-pointer ${filter === 'all' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'all' ? 'text-gray-400 underline' : 'text-gray-700 hover:text-gray-500'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => handleFilterChange('all')}
           >
-            ALL
+            {content.all} {/* Translated 'ALL' */}
           </p>
           <p
-            className={`text-sm font-bold cursor-pointer ${filter === 'painting' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4 mb-2 lg:mb-0`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'painting' ? 'text-gray-400 underline' : 'text-gray-700 hover:text-gray-500'} lg:mr-4 mb-2 lg:mb-0`}
             onClick={() => handleFilterChange('painting')}
           >
-            PAINTING
+            {content.painting} {/* Translated 'PAINTING' */}
           </p>
           <p
-            className={`text-sm font-bold cursor-pointer ${filter === 'graphic' ? 'text-gray-400 underline' : 'text-gray-700'} lg:mr-4`}
+            className={`text-sm font-bold cursor-pointer ${filter === 'graphic' ? 'text-gray-400 underline' : 'text-gray-700 hover:text-gray-500'} lg:mr-4`}
             onClick={() => handleFilterChange('graphic')}
           >
-            GRAPHIC
+            {content.graphic} {/* Translated 'GRAPHIC' */}
           </p>
         </div>
       </div>

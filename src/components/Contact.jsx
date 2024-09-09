@@ -23,8 +23,8 @@ const Contact = ({ content }) => { // Accept content as prop for language switch
             {content.description} <br />
             <a href={`mailto:${content.email}`} className='text-blue-400 hover:text-blue-300'>{content.email}</a>
           </p>
-          <p className='py-2 text-center'>
-            {content.or}
+          <p className='pt-2 pb-6 text-center'>
+            {content.or} 
           </p>
           <form className='flex flex-col'>
             <input className='w-full p-2 mb-4 rounded-md text-gray-800' type='text' placeholder={content.form.namePlaceholder} required />
