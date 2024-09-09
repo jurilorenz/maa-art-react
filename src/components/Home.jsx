@@ -28,9 +28,11 @@ const Home = ({ language, toggleLanguage }) => {
   }, [dropdownRef]);
 
   return (
-    <div id="home" className='w-full h-screen relative'>
-      <img className='top-0 left-0 w-full h-screen object-cover' src={homeImage} alt="Home Background" />
-      <div className='bg-black/20 absolute top-0 left-0 w-full h-screen' />
+<div id="home" className='w-full h-[75vh] relative'> {/* Высота установлена на 75% от высоты экрана */}
+  <img className='top-0 left-0 w-full h-full object-cover' src={homeImage} alt="Home Background" />
+  <div className='bg-black/20 absolute top-0 left-0 w-full h-full' />
+
+
 
       {/* Container for text */}
       <div className='absolute top-0 left-0 w-full h-full flex justify-start items-start p-4'>
