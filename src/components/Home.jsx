@@ -1,21 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import homeImage from '../assets/images/home.jpg'; 
-import en from '../locales/en.json';
-import ru from '../locales/ru.json';
 import { GrLanguage } from "react-icons/gr";
 
-const Home = () => {
-  const [language, setLanguage] = useState('en'); // Default language is English
+const Home = ({ language, toggleLanguage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
-  const content = language === 'en' ? en : ru;
+  const content = language === 'en' ? 'Margarita Akimova' : 'Маргарита Акимова';
   
   // Create a ref for the dropdown menu
   const dropdownRef = useRef(null);
-
-  const toggleLanguage = (lang) => {
-    setLanguage(lang);
-    setIsDropdownOpen(false); // Close dropdown after selecting a language
-  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
@@ -44,7 +36,7 @@ const Home = () => {
       <div className='absolute top-0 left-0 w-full h-full flex justify-start items-start p-4'>
         {/* Text in the upper left corner */}
         <h1 className='text-white font-bold text-2xl sm:text-3xl md:text-4xl'>
-          {content.home.title}
+          {content}
         </h1>
 
         {/* Language Switch Button (Globe Icon with Dropdown) */}

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { HiMenuAlt2, HiMenuAlt3 } from "react-icons/hi";
 import { Link } from 'react-scroll';
 
-const Navbar = () => {
+const Navbar = ({ content, toggleLanguage, language }) => {
   const [nav, setNav] = useState(false);
 
   const links = [
-    { id: "home", label: "Home" },
-    { id: "drawings", label: "Drawings" },
-    { id: "prints", label: "Prints" },
-    { id: "about", label: "About" },
-    { id: "exhibitions", label: "Exhibitions" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: content.home },
+    { id: "drawings", label: content.drawings },
+    { id: "prints", label: content.prints },
+    { id: "about", label: content.about },
+    { id: "exhibitions", label: content.exhibitions },
+    { id: "contact", label: content.contact },
   ];
 
   const handleNav = () => {

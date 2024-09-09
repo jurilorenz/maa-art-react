@@ -2,33 +2,33 @@ import React from 'react';
 import artistPhoto from '../assets/images/artist-photo.jpg';
 import bgImage from '../assets/images/bg.jpg'; // Import the background image
 
-const About = () => {
+const About = ({ content }) => {
   return (
-<div 
-  id="about"
-  className='relative max-w-[1150px] mx-auto my-2 py-16 lg:mb-[2%] md:mb-[5%] px-8 grid lg:grid-cols-3 gap-4 rounded-lg shadow-lg' // Reduced width, increased padding
-  style={{
-    backgroundImage: `url(${bgImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-  }}
->
+    <div 
+      id="about"
+      className='relative max-w-[1150px] mx-auto my-2 py-16 lg:mb-[2%] md:mb-[5%] px-8 grid lg:grid-cols-3 gap-4 rounded-lg shadow-lg'
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       {/* Black Overlay */}
       <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
 
       {/* Content */}
       <div className='lg:col-span-2 col-span-3 flex flex-col justify-center relative z-10'>
-        <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-white'>ABOUT</h3>
+        <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-white'>{content.title}</h3>
         
         <p className='text-white'>
-          As a freelance artist, I find joy in working with oils, watercolors, tempera, and pastels, with a special focus on graphic arts. Nature deeply inspires me — from the quiet of a snow-covered forest to the vibrant greens of summer. Each piece is a heartfelt attempt to capture the beauty of our world, infusing it with a part of my soul.
+          {content.content1}
         </p>
         
         <br />
 
         <p className='text-white'>
-          I’m a member of the Union of Russian Artists and regularly participate in exhibitions. My work is featured in private collections across Russia, Germany, and the USA.
+          {content.content2}
         </p>
       </div>
 
