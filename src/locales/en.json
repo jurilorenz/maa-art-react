@@ -1,0 +1,36 @@
+{
+  "home": {
+    "title": "Margarita Akimova",
+    "languageSwitch": "RU"
+  },
+  "navbar": {
+    "home": "Home",
+    "drawings": "Drawings",
+    "prints": "Prints",
+    "about": "About",
+    "exhibitions": "Exhibitions",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "ABOUT",
+    "content1": "As a freelance artist, I find joy in working with oils, watercolors, tempera, and pastels, with a special focus on graphic arts. Nature deeply inspires me — from the quiet of a snow-covered forest to the vibrant greens of summer. Each piece is a heartfelt attempt to capture the beauty of our world, infusing it with a part of my soul.",
+    "content2": "I’m a member of the Union of Russian Artists and regularly participate in exhibitions. My work is featured in private collections across Russia, Germany, and the USA."
+  },
+  "prints": {
+    "title": "Exclusive Art Prints",
+    "contactButton": "Get in Touch",
+    "highlight1": "Printing On Canvas",
+    "highlight2": "Diasec (Acrylic Face Mounting)",
+    "highlight3": "Printing On Metal"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "email": "example@example.ru",
+    "form": {
+      "namePlaceholder": "Your Name *",
+      "emailPlaceholder": "Your Email *",
+      "messagePlaceholder": "Enter your message *",
+      "submit": "Send Message"
+    }
+  }
+}

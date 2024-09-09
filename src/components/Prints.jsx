@@ -20,23 +20,9 @@ const Prints = () => {
 
         <div className='relative z-10'>
           <h1 className='text-6xl font-bold mb-4'>Exclusive Art Prints</h1>
-          <p className='text-xl mb-8'>Elevate your space with our high-quality, limited-edition prints</p>
+          <p className='text-xl mb-1'>Elevate your space with our high-quality prints</p>
           
-          {/* Contact Button */}
-          <Link 
-            to="contact" 
-            smooth={true} 
-            duration={500}
-          >
-            <button
-              className='text-black font-bold py-3 px-8 rounded transition duration-300 bg-white hover:bg-gray-200'
-              style={{
-                border: 'none',
-              }}
-            >
-              Contact Us
-            </button>
-          </Link>
+
         </div>
       </div>
 
@@ -80,7 +66,7 @@ const Prints = () => {
               border: 'none',
             }}
           >
-            Contact Us
+            Get in Touch
           </button>
         </Link>
       </div>
