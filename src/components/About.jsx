@@ -14,26 +14,29 @@ const About = ({ content }) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Black Overlay */}
-      <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
+      {/* Darker Overlay */}
+      <div className="absolute inset-0 bg-black/60 rounded-lg"></div>
 
       {/* Content */}
       <div className='lg:col-span-2 col-span-3 flex flex-col justify-center relative z-10'>
-        <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-white'>{content.title}</h3>
+      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-white'>
+          {content.title}
+
+        </h3>
         
-        <p className='text-white'>
+        <p className='text-gray-200'>
           {content.content1}
         </p>
         
         <br />
 
-        <p className='text-white'>
+        <p className='text-gray-200'>
           {content.content2}
         </p>
       </div>
 
       <div className='lg:col-span-1 col-span-3 flex justify-center items-center relative z-10'>
-        <img className='object-cover w-64 h-64 rounded-full border-8 border-white lg:mt-0 mt-8 lg:mb-0 mb-8' src={artistPhoto} alt="Artist Photo" />
+        <img className='object-cover w-64 h-64 rounded-full border-8 border-gray-600 hover:border-gray-300 transition-all duration-300 lg:mt-0 mt-8 lg:mb-0 mb-8' src={artistPhoto} alt="Artist Photo" />
       </div>
     </div>
   );
