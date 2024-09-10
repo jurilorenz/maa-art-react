@@ -55,7 +55,7 @@ const ImageSlider = ({ slides }) => {
           <div
             key={index}
             className={`h-3 w-3 mx-2 rounded-full cursor-pointer ${
-              currentIndex === index ? 'bg-gray-800' : 'bg-gray-400'
+              currentIndex === index ? 'bg-white' : 'bg-gray-400'
             }`}
             onClick={() => setCurrentIndex(index)}
           ></div>

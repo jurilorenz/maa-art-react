@@ -19,7 +19,7 @@ const Footer = ({ content }) => {
       {/* Invisible container with max-width */}
       <div className='max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center px-2 py-8 lg:py-16 text-gray-500'>
         {/* Left-aligned text */}
-        <p className='py-4'>2024 Margarita Akimova</p>
+        <p className='py-4'>{content.artist}</p>
 
         {/* Centered Privacy link for mobile and desktop */}
         <p className='py-4 hover:text-blue-300 cursor-pointer text-blue-400 order-2 sm:order-none'>

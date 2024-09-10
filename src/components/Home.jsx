@@ -42,34 +42,34 @@ const Home = ({ language, toggleLanguage }) => {
         </h1>
 
         {/* Language Switch Button (Globe Icon with Dropdown) */}
-        <div ref={dropdownRef} className='absolute top-4 right-1/4 transform translate-x-1/2 z-40'>
-          <div 
-            className='relative cursor-pointer text-white p-2 rounded-full bg-gray-800 hover:bg-gray-600 transition duration-300'
-            onClick={toggleDropdown}
-          >
-            <GrLanguage size={25} />
-          </div>
+        <div ref={dropdownRef} className='absolute top-4 right-16 z-40'> {/* Adjusted right margin */}
+  <div 
+    className='relative cursor-pointer text-white p-2 rounded-full bg-gray-800 hover:bg-gray-600 transition duration-300'
+    onClick={toggleDropdown}
+  >
+    <GrLanguage size={25} />
+  </div>
 
-          {/* Dropdown menu */}
-          {isDropdownOpen && (
-            <div className="absolute top-12 right-0 bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
-              <ul className='text-left'>
-                <li 
-                  className={`px-4 py-2 cursor-pointer ${language === 'en' ? 'bg-gray-700' : ''}`}
-                  onClick={() => toggleLanguage('en')}
-                >
-                  EN
-                </li>
-                <li 
-                  className={`px-4 py-2 cursor-pointer ${language === 'ru' ? 'bg-gray-700' : ''}`}
-                  onClick={() => toggleLanguage('ru')}
-                >
-                  RU
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
+  {/* Dropdown menu */}
+  {isDropdownOpen && (
+    <div className="absolute top-12 right-0 bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
+      <ul className='text-left'>
+        <li 
+          className={`px-4 py-2 cursor-pointer ${language === 'en' ? 'bg-gray-700' : ''}`}
+          onClick={() => toggleLanguage('en')}
+        >
+          EN
+        </li>
+        <li 
+          className={`px-4 py-2 cursor-pointer ${language === 'ru' ? 'bg-gray-700' : ''}`}
+          onClick={() => toggleLanguage('ru')}
+        >
+          RU
+        </li>
+      </ul>
+    </div>
+  )}
+</div>
       </div>
     </div>
   );
