@@ -43,15 +43,15 @@ const Modal = ({ image, isOpen, onClose, onNext, onPrev }) => {
   const isDevImage = image.fullSrc.includes('dev2');
 
   return (
-    <div className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center' onClick={onClose}>
-      <button onClick={onClose} className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'>
+<div className='fixed inset-0 bg-black z-50 flex items-center justify-center' onClick={onClose}>      
+  <button onClick={onClose} className='absolute top-2 right-2 text-white text-3xl hover:text-gray-300 bg-transparent border-none'>
         <VscChromeClose />
       </button>
 
       <div className='relative max-w-[100%] max-h-[80%] flex flex-col justify-center items-center'
         onClick={(e) => e.stopPropagation()} // Prevent modal close on content click
       >
-        {isLoading && <div className="loader">Loading...</div>}
+        {/*isLoading && <div className="loader">Loading...</div>*/}
 
         {/* Wrapping the image with TransformWrapper for zoom and pan */}
         <TransformWrapper ref={zoomRef}> 
