@@ -7,3 +7,7 @@
     @apply border py-2 px-3 rounded-full
   }
 }
+
+body {
+  background-color: #000000; /* Black background */
+}

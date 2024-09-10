@@ -45,8 +45,8 @@ const Prints = ({ content }) => {
 
       {/* Call to Action */}
       <div className='text-center py-12'>
-        <h2 className='text-5xl font-bold mb-4 text-white'>{content.callToAction}</h2>
-        <p className='text-xl mb-8 text-gray-300'>{content.callToAction2}</p>
+        <h2 className='text-5xl font-bold mb-4 text-gray-100'>{content.callToAction}</h2>
+        <p className='text-xl mb-8 text-gray-400'>{content.callToAction2}</p>
         
         {/* Contact Button */}
         <Link 

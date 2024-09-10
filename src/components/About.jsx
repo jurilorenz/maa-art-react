@@ -19,7 +19,7 @@ const About = ({ content }) => {
 
       {/* Content */}
       <div className='lg:col-span-2 col-span-3 flex flex-col justify-center relative z-10'>
-      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-white'>
+      <h3 className='text-xl font-bold text-left border-b border-gray-500 w-fit pb-2 mb-7 text-gray-100'>
           {content.title}
 
         </h3>

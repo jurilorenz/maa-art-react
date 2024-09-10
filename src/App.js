@@ -6,6 +6,7 @@ import Drawings from './components/Drawings.jsx';
 import About from './components/About.jsx';
 import Exhibitions from './components/Exhibitions.jsx';
 import Contact from './components/Contact.jsx';
+import Footer from './components/Footer.jsx';
 import en from './locales/en.json';
 import ru from './locales/ru.json';
 
@@ -27,6 +28,7 @@ function App() {
       <About content={content.about} language={language} />
       <Exhibitions content={content.exhibitions} language={language} />
       <Contact content={content.contact} language={language} />
+      <Footer content={content.footer} language={language} />
     </div>
   );
 }
