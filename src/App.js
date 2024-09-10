@@ -24,10 +24,10 @@ function App() {
       <Navbar content={content.navbar} toggleLanguage={toggleLanguage} language={language} />
       <Home content={content.home} toggleLanguage={toggleLanguage} language={language} />
       <Drawings content={content.drawings} language={language} />
+      <Contact content={content.contact} language={language} />
       <Prints content={content.prints} language={language} />
       <About content={content.about} language={language} />
       <Exhibitions content={content.exhibitions} language={language} />
-      <Contact content={content.contact} language={language} />
       <Footer content={content.footer} language={language} />
     </div>
   );
