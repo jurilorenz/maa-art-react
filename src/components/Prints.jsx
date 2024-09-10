@@ -19,8 +19,8 @@ const Prints = ({ content }) => {
         <div className="absolute inset-0 bg-black/50"></div>
 
         <div className='relative z-10'>
-          <h1 className='text-6xl font-bold mb-4'>{content.title}</h1>
-          <p className='text-xl mb-1'>{content.description}</p>
+          <h1 className='px-2 text-6xl font-bold mb-4'>{content.title}</h1>
+          <p className='px-2 text-xl mb-1'>{content.description}</p>
         </div>
       </div>
 

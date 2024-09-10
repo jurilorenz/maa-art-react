@@ -1,28 +1,57 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
+import React from 'react';
 
 const Contact = ({ content }) => {
   return (
-    <div id="contact" className='w-full mt-8 bg-gray-900 text-gray-300 py-2 px-2'>
-      <div className='max-w-[1400px] mx-auto flex justify-center items-center py-8 px-4'>
-        <div className='w-full md:w-1/2'>
-          <p className='font-bold uppercase text-center'>{content.title}</p>
-          <p className='py-4 text-center'>
+    <div
+      id="contact"
+      className="w-full mt-8 bg-black text-gray-300 py-12 relative"
+    >
+      <div className="relative z-10 max-w-[1000px] mx-auto">
+        <div className="text-center mb-8">
+          <p className="font-bold text-4xl uppercase text-white">{content.title}</p>
+          <p className="py-4 px-2 text-center text-gray-400">
             {content.description} <br />
-            <a href={`mailto:${content.email}`} className='text-blue-400 hover:text-blue-300'>{content.email}</a>
+            <a href={`mailto:${content.email}`} className="text-blue-400 hover:text-blue-300">
+              {content.email}
+            </a>
           </p>
-          <p className='pt-2 pb-6 text-center'>
-            {content.or} 
-          </p>
-          <form className='flex flex-col'>
-            <input className='w-full p-2 mb-4 rounded-md text-gray-800' type='text' placeholder={content.form.namePlaceholder} required />
-            <input className='w-full p-2 mb-4 rounded-md text-gray-800' type='tel' placeholder={content.form.phonePlaceholder} required />
-            <input className='w-full p-2 mb-4 rounded-md text-gray-800' type='email' placeholder={content.form.emailPlaceholder} required />
-            <textarea className='w-full p-2 mb-4 rounded-md text-gray-800' placeholder={content.form.messagePlaceholder} rows='4' required />
-            <button className='w-full p-2 mb-4 bg-gray-700 text-white rounded-md hover:bg-gray-600' type='submit'>
+          <p className="px-2 pt-2 pb-6 text-center text-gray-400">{content.or}</p>
+        </div>
+
+        {/* Contact Form */}
+        <div className="bg-gray-800 bg-opacity-70 rounded-lg p-8 shadow-lg">
+          <form className="flex flex-col">
+            <input
+              className="w-full p-4 mb-4 rounded-md bg-gray-700 text-gray-200 focus:ring-2 focus:ring-orange-400"
+              type="text"
+              placeholder={content.form.namePlaceholder}
+              required
+            />
+            <input
+              className="w-full p-4 mb-4 rounded-md bg-gray-700 text-gray-200 focus:ring-2 focus:ring-orange-400"
+              type="tel"
+              placeholder={content.form.phonePlaceholder}
+              required
+            />
+            <input
+              className="w-full p-4 mb-4 rounded-md bg-gray-700 text-gray-200 focus:ring-2 focus:ring-orange-400"
+              type="email"
+              placeholder={content.form.emailPlaceholder}
+              required
+            />
+            <textarea
+              className="w-full p-4 mb-4 rounded-md bg-gray-700 text-gray-200 focus:ring-2 focus:ring-orange-400"
+              placeholder={content.form.messagePlaceholder}
+              rows="4"
+              required
+            />
+            <button
+              className="w-full py-3 px-8 text-white font-bold rounded transition duration-300 bg-gradient-to-r from-[#e59866] to-[#d35400] hover:bg-[#b84300] hover:brightness-125"
+              type="submit"
+            >
               {content.form.submit}
             </button>
-            <p className='text-sm text-gray-500 text-center'>{content.form.requiredNote}</p>
+            <p className="text-sm text-gray-400 text-center mt-4">{content.form.requiredNote}</p>
           </form>
         </div>
       </div>

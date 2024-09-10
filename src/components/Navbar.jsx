@@ -8,10 +8,10 @@ const Navbar = ({ content }) => {
   const links = [
     { id: "home", label: content.home },
     { id: "drawings", label: content.drawings },
+    { id: "contact", label: content.contact },
     { id: "prints", label: content.prints },
     { id: "about", label: content.about },
     { id: "exhibitions", label: content.exhibitions },
-    { id: "contact", label: content.contact },
   ];
 
   const handleNav = () => {

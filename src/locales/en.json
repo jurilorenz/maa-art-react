@@ -55,9 +55,9 @@
 },
   "contact": {
   "title": "Contact Me",
-  "description": "If you have any questions or have a cooperation offer, you can write me an email:",
+  "description": "If you have any questions or have a cooperation offer, email me:",
   "email": "example@example.ru",
-  "or": "or leave information on the website by filling out this form below:",
+  "or": "or fill in this form below:",
   "form": {
     "namePlaceholder": "Your Name *",
     "emailPlaceholder": "Your Email *",
