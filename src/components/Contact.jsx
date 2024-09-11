@@ -19,7 +19,7 @@ const Contact = ({ content }) => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-gray-800 bg-opacity-70 rounded-lg p-8 shadow-lg">
+        <div className="bg-gray-800 bg-opacity-70 rounded-lg p-8 shadow-neumorphism hover:shadow-neumorphism-hover transition-all duration-300">
           <form className="flex flex-col">
             <input
               className="w-full p-4 mb-4 rounded-md bg-gray-700 text-gray-200 focus:ring-2 focus:ring-orange-400"

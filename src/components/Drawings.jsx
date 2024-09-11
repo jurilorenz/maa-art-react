@@ -105,35 +105,35 @@ const Drawings = ({ content }) => { // Accept content as prop for language switc
 
       {/* Display images */}
       <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-        {filteredImages.map((image, index) => (
-          <div
-            key={index}
-            className="relative w-full h-0 pb-[75%] group"
-            onClick={() => openModal(index)} // Open the modal on image click
-          >
-            <img
-              className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70 cursor-pointer"
-              src={image.src}
-              alt={`Artwork ${index + 1}`}
-            />
-            {/* Overlay that appears on hover */}
-            <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-              <p className="text-xs md:text-sm lg:text-base font-bold text-center mb-2 group-hover:text-sm lg:group-hover:text-lg transition-all duration-300">
-                {image.title}
-              </p>
-              <p className="text-[10px] md:text-xs lg:text-sm text-center mt-2 group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
-                {image.year}, {image.medium}
-              </p>
-              <p className="text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
-                {image.size}
-              </p>
-              <p className="text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
-                {image.price}
-              </p>
-            </div>
-          </div>
-        ))}
+  {filteredImages.map((image, index) => (
+    <div
+      key={index}
+      className="relative w-full h-0 pb-[75%] group shadow-neumorphism hover:shadow-neumorphism-hover transition-shadow duration-300" // Neumorphism effect without rounded corners
+      onClick={() => openModal(index)} // Open the modal on image click
+    >
+      <img
+        className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70 cursor-pointer"
+        src={image.src}
+        alt={`Artwork ${index + 1}`}
+      />
+      {/* Overlay that appears on hover */}
+      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+        <p className="text-xs md:text-sm lg:text-base font-bold text-center mb-2 group-hover:text-sm lg:group-hover:text-lg transition-all duration-300">
+          {image.title}
+        </p>
+        <p className="text-[10px] md:text-xs lg:text-sm text-center mt-2 group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
+          {image.year}, {image.medium}
+        </p>
+        <p className="text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
+          {image.size}
+        </p>
+        <p className="text-[10px] md:text-xs lg:text-sm text-center group-hover:text-xs lg:group-hover:text-base transition-all duration-300">
+          {image.price}
+        </p>
       </div>
+    </div>
+  ))}
+</div>
 
       {/* Modal for image preview */}
       {selectedIndex !== null && (

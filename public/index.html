@@ -15,6 +15,25 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+        <!-- Structured Data: Person Schema for SEO -->
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Margarita Akimova",
+            "jobTitle": "Artist",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Artworks"
+            }
+          }
+          </script>
+
+        <!-- hreflang tags for SEO -->
+        <link rel="alternate" href="https://example.com/en" hreflang="en" />
+        <link rel="alternate" href="https://example.com/ru" hreflang="ru" />
+    
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

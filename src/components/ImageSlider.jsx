@@ -28,27 +28,29 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <div className='max-w-[1400px] h-[580px] w-full m-auto py-10 px-4 relative group'>
+      {/* Neumorphism effect for the image container */}
       <div
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer'
+        className='w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer shadow-neumorphism hover:shadow-neumorphism-hover transition-all'
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        onClick={openModal} // Open modal on image click
+        onClick={openModal}
       ></div>
+
       {/* Left Arrow */}
-      <button 
-        onClick={goToPreviousSlide} 
-        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
-        absolute left-4 top-[50%] transform -translate-y-1/2'
+      <button
+        onClick={goToPreviousSlide}
+        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute left-4 top-[50%] transform -translate-y-1/2'
       >
         <BsChevronLeft />
       </button>
+
       {/* Right Arrow */}
-      <button 
-        onClick={goToNextSlide} 
-        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none 
-        absolute right-4 top-[50%] transform -translate-y-1/2'
+      <button
+        onClick={goToNextSlide}
+        className='text-white text-3xl hover:text-gray-300 bg-transparent border-none absolute right-4 top-[50%] transform -translate-y-1/2'
       >
         <BsChevronRight />
       </button>
+
       {/* Dots Navigation */}
       <div className='flex justify-center py-2'>
         {slides.map((_, index) => (
@@ -63,20 +65,21 @@ const ImageSlider = ({ slides }) => {
       </div>
 
       {/* Modal for displaying the clicked image */}
-      <Modal 
-        image={{
-          fullSrc: slides[currentIndex].fullSrc || slides[currentIndex].url, // Use fullSrc if available, otherwise fallback to url
-          title: slides[currentIndex].title,
-          size: slides[currentIndex].size || 'Unknown Size',
-          medium: slides[currentIndex].medium || 'Mixed Media',
-          year: slides[currentIndex].year || '2023',
-          //price: slides[currentIndex].price || 'Price on Request',
-        }} 
-        isOpen={isModalOpen} 
-        onClose={closeModal}
-        onNext={goToNextSlide}
-        onPrev={goToPreviousSlide}
-      />
+      {isModalOpen && (
+        <Modal
+          image={{
+            fullSrc: slides[currentIndex].fullSrc || slides[currentIndex].url,
+            title: slides[currentIndex].title,
+            size: slides[currentIndex].size || 'Unknown Size',
+            medium: slides[currentIndex].medium || 'Mixed Media',
+            year: slides[currentIndex].year || '2023',
+          }}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onNext={goToNextSlide}
+          onPrev={goToPreviousSlide}
+        />
+      )}
     </div>
   );
 };
